@@ -30,29 +30,24 @@ n == nums.length
 #include <iostream>
 
 int main() {
-  int nums[5] = {1, 2, 3, 4, 5};
-  int size_nums = sizeof(nums) / sizeof(nums[0]);
-  int size = size_nums * 2;
-  int ans[size];
+  int nums[] = {1, 2, 3, 4, 5};
+  int n = sizeof(nums) / sizeof(nums[0]);
+  int ans[n * 2];
 
   std::cout << "nums: ";
-  for (int i = 0; i < size_nums; ++i) {
+  for (int i = 0; i < n; ++i) {
     std::cout << nums[i];
   }
   std::cout << "\n";
 
-  for (int j = 0; j < size_nums; ++j) {
-    ans[j] = nums[j];
-    for (int k = size_nums; k < size_nums * 2; ++k) {
-      ans[k] = nums[k - j - 1];
-    }
+  for (int i = 0; i < n; ++i) {
+    ans[i] = nums[i];
+    ans[i + n] = nums[i];
   }
 
-  int size_ans = sizeof(ans) / sizeof(ans[0]);
   std::cout << "ans: ";
-
-  for (int l = 0; l < size_ans; ++l) {
-    std::cout << ans[l];
+  for (int i = 0; i < n * 2; ++i) {
+    std::cout << ans[i];
   }
   return 0;
 }
