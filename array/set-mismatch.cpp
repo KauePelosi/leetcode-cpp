@@ -43,7 +43,7 @@ int main() {
     count[nums[i]]++;
   }
 
-  for (int i = 1; i < n; i++) {
+  for (int i = 1; i <= n; i++) {
     if (count[i] == 2) {
       duplicate = i;
     }
