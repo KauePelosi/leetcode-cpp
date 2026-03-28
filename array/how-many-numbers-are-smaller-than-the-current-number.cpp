@@ -34,3 +34,29 @@ Constraints:
 2 <= nums.length <= 500
 0 <= nums[i] <= 100
 */
+
+#include <iostream>
+#include <vector>
+
+int main() {
+  int nums[] = {8, 5, 7, 9};
+  int current_number = 0;
+  int nums_size = sizeof(nums) / sizeof(nums[0]);
+  std::vector<int> output;
+
+  for (int i = 0; i < nums_size; i++) {
+    int count = 0;
+    current_number = nums[i];
+    for (int j = 0; j < nums_size; j++) {
+      if (j != i && current_number > nums[j]) {
+        count++;
+      }
+    }
+    output.push_back(count);
+  }
+  std::cout << "output: ";
+  for (int i : output) {
+    std::cout << i << " ";
+  }
+  return 0;
+}

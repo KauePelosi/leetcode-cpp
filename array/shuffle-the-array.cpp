@@ -26,26 +26,22 @@ nums.length == 2n
 1 <= nums[i] <= 10^3
 
 */
+
 #include <iostream>
 
 int main() {
-  int nums[] = {7, 12, 4, 9, 1, 15, 3, 8};
+  int nums[] = {10, 20, 30, 40, 50, 60};
+  int n = 3;
+  int output[6];
 
-  int nums_size = sizeof(nums) / sizeof(nums[0]);
-  int half_nums = nums_size / 2;
-  int output[nums_size];
-
-  int j = 0;
-
-  for (int i = 0; i < half_nums; ++i) {
-    output[j] = nums[i];                 // xi
-    output[j + 1] = nums[i + half_nums]; // yi
-    j += 2;
+  for (int i = 0; i < 3; i++) {
+    output[2 * i] = nums[i];
+    output[2 * i + 1] = nums[i + n];
   }
 
-  for (int i = 0; i < nums_size; ++i) {
-    std::cout << output[i] << "\n";
+  std::cout << "output: ";
+  for (int i : output) {
+    std::cout << i << " ";
   }
-
   return 0;
 }
